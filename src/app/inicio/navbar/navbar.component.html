@@ -1,0 +1,12 @@
+<nav class="nav-bar" id="slide-to-nav">
+    <ul [ngClass]="isActive ? 'nav-list container' : 'nav-list container is-active'">
+      <li class="nav-items" routerLinkActive="in-this-route" (click)="toggleNav()"><a routerLink="/aboutme" >Acerca De Mí</a></li>
+      <li class="nav-items" routerLinkActive="in-this-route" (click)="toggleNav()"><a routerLink="/skills"   >Habilidades</a></li>
+      <li class="nav-items" routerLinkActive="in-this-route" (click)="toggleNav()"><a routerLink="/projects"  >Proyectos</a></li>
+      <li class="nav-items" routerLinkActive="in-this-route" (click)="toggleNav()"><a routerLink="/contact"   >Contácto</a></li>
+    </ul>
+    <div class="container">
+      <i class="fa-solid fa-bars hamb-btn" (click)="toggleNav()"></i>
+      </div>    
+  </nav>
+  

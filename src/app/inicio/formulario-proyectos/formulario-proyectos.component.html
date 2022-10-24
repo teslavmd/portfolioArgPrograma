@@ -1,0 +1,56 @@
+<div class="add border">
+  <form 
+    class="form-add"
+    #form = "ngForm"
+    (submit)="form.form.valid && submitProject(form)"
+  >
+    <h2 class="form-text">Agregar un nuevo Proyecto</h2>
+    <div class="form-container">
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        class="form-input"
+        [(ngModel)]="nombreInput"
+        placeholder="Nombre del proyecto"
+        required
+      />
+    </div>
+    <div class="form-container">
+      <input 
+      type="text" 
+      name="tecnologias" 
+      id="tecnologias"
+      class="form-input" 
+      [(ngModel)]="tecnologiasInput"
+      placeholder="Tecnologias usadas"
+      />
+    </div>
+    <div class="form-container">
+      <input 
+      type="text" 
+      name="repositorio" 
+      id="repositorio" 
+      class="form-input"
+      [(ngModel)]="repositorioInput"
+      placeholder="Repositorio de github"
+      />
+    </div>
+    <div class="form-container">
+      <input 
+      type="text" 
+      name="url" 
+      id="url"
+      class="form-input"
+      [(ngModel)]="urlInput"
+      placeholder="Url de la Web"
+      />
+    </div>
+
+    <div class="form-container form-buttons">
+      <button class="button-submit" type="submit">Cargar Proyecto</button>
+      <button (click)="volver()" class="button-back">volver</button>
+    </div>
+
+  </form>
+</div>

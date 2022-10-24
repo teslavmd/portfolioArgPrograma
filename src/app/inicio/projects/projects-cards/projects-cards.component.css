@@ -1,0 +1,14 @@
+.button-link{
+    color: #ececec;
+    text-decoration: none;
+    background: var(--third-color);
+    padding: .3rem .4rem;
+    border-radius: .2rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button-link:hover{
+    background: var(--fourth-color);
+    color: #4a22b9;
+}

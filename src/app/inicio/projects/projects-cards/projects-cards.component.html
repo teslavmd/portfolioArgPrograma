@@ -1,0 +1,35 @@
+<div class="projects-card" *ngFor="let pCard of projectsCard">
+    <!-- <div class="projects-img">
+      <img src="{{ pCard.urlImg }}" alt="" />
+    </div> -->
+    <div class="projects-info">
+      <p><span class="underline">Nombre:</span> {{ pCard.name }} </p>
+      <p>
+        <span class="underline">Tecnologias Usadas:</span> {{ pCard.tecnologies }}</p>
+      <p>
+        <a
+          href="{{ pCard.urlGit }}"
+          target="_blank"
+          class="button-link"
+          >Ir al Repositorio</a
+        >
+      </p>
+      <p>
+        <a
+          href="{{ pCard.urlWeb }}"
+          target="_blank"
+          class="button-link"
+          >Ir a la web</a
+        >
+      </p>
+      <p></p>
+    </div>
+    <div style="
+    color: #fff; 
+    width: 5%;
+    height: 100%;
+    text-align: end;
+    padding: 1rem">
+        <mat-icon (click)="deleteCardProject(pCard)" class="btn-delete">delete</mat-icon>
+    </div>
+ </div>

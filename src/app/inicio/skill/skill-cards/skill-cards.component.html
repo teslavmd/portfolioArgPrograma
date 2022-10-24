@@ -1,0 +1,24 @@
+<div class="skills-container container">  
+  <div *ngFor="let card of cards">
+    <div class="skills-card-outer">
+      <div class="skills-card">
+        <div *ngIf="!login" style="width: 120%; text-align: end;">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <i class="fa-solid fa-trash btn-delete" (click)="deleteCard(card)"></i>
+        </div>
+        <label class="skill-title-card">{{ card.title }}</label>
+        <div>
+          <img src="{{card.imgUrl}}" alt="" />
+        </div>
+      </div>
+      <p style="text-align: center;">Progreso: {{card.progress}}%</p>
+
+    </div>
+    <mat-progress-bar mode="determinate" value="{{card.progress}}"></mat-progress-bar>
+  </div>
+    <div *ngIf="login" class="skills-card" id="addSkill">
+    <a routerLink="/addSkill">
+      <i class="fa-solid fa-circle-plus" style="font-size: 3.125rem;"></i>
+    </a>
+  </div>
+</div>

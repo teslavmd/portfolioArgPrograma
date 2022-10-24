@@ -1,0 +1,59 @@
+<div class="add border">
+        <form 
+          class="form-add"
+          #form = "ngForm"
+          (submit)="submitSkill(form)"
+        >
+          <h2 class="form-text">Agregar una nueva Habilidad</h2>
+          <flash-messages></flash-messages>
+          <div class="form-container">
+            <input
+              type="text"
+              name="nombre"
+              id="nombre"
+              class="form-input"
+              [(ngModel)]="nombreInput"
+              placeholder="Herramienta/Lenguaje/Framework"
+              required
+            />
+          </div>
+          <div class="form-container">
+            Nivel: 
+            <mat-slider 
+            class="example-margin" 
+            name="repositorio" 
+            [(ngModel)]="nivel"
+            thumbLabel
+            tickInterval="100"
+            step="1"
+            min="0"
+            max="100"
+            aria-label="units"
+            ></mat-slider>
+          </div>
+          <div class="form-container">  
+            <label class="input-file">
+              <input 
+              [disabled]="loading"
+              type="file" 
+              name="tecnologias" 
+              id="tecnologias"
+              class="form-input"
+              placeholder="Imagen"
+              (change)="capturarArchivo($event)"
+              />{{(loading) ? 'Cargando' : 'Imagen/logo'}}
+            </label>
+          </div>
+          
+          <div class="form-container">
+            <img [src]="imgPre" alt="" width="100px">
+          </div>
+      
+          <div class="form-container form-buttons">
+            <button class="button-submit" type="submit">Cargar hablidad</button>
+            <button role="link" routerLink="/skills" class="button-back">volver</button>
+          </div>
+      
+        </form>
+      
+</div>
