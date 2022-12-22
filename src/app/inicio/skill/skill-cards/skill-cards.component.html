@@ -1,20 +1,37 @@
+<div class="container container-btn">
+  <i *ngIf="login" class="fa-solid fa-pen-to-square btn-edit" (click)="editBtn()"></i>
+</div>
 <div class="skills-container container">  
   <div *ngFor="let card of cards">
     <div class="skills-card-outer">
       <div class="skills-card">
-        <div *ngIf="!login" style="width: 120%; text-align: end;">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <i class="fa-solid fa-trash btn-delete" (click)="deleteCard(card)"></i>
+        <div *ngIf="login" style="width: 100%; text-align: end;">
+          <i class="fa-solid fa-trash btn-delete" (click)="deleteCard(card.id)"></i>
         </div>
-        <label class="skill-title-card">{{ card.title }}</label>
+        <label class="skill-title-card">{{ card.titulo }}</label>
         <div>
-          <img src="{{card.imgUrl}}" alt="" />
+          <img src="{{ card.img_url }}" alt="" />
         </div>
       </div>
-      <p style="text-align: center;">Progreso: {{card.progress}}%</p>
+      <p style="
+      text-align: center;
+      ">Progreso: {{card.progreso}}%</p>
 
-    </div>
-    <mat-progress-bar mode="determinate" value="{{card.progress}}"></mat-progress-bar>
+      <mat-slider 
+      *ngIf="isEdit"
+      class="example-margin" 
+      name="repositorio" 
+      (change)="editLevel(card)"
+      [(ngModel)]="card.progreso"
+      thumbLabel
+      tickInterval="100"
+      step="1"
+      min="0"
+      max="100"
+      aria-label="units"
+      ></mat-slider>
+    <mat-progress-bar mode="determinate" value="{{ card.progreso }}"></mat-progress-bar>
+  </div>
   </div>
     <div *ngIf="login" class="skills-card" id="addSkill">
     <a routerLink="/addSkill">

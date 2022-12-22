@@ -2,8 +2,19 @@ textarea{
     resize: none;
 }
 
+
+/* FOOTER */
+footer{
+    background: var(--first-color);
+    height: 100px;
+    bottom: 0;
+}
+
+
 footer>.container{
     height: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .container-footer{

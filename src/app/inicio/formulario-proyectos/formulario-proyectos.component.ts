@@ -14,6 +14,7 @@ export class FormularioProyectosComponent implements OnInit {
 
   nombreInput : string ;
   tecnologiasInput : string ;
+  descripcionInput : string;
   repositorioInput : string;
   urlInput : string;
 
@@ -32,9 +33,13 @@ export class FormularioProyectosComponent implements OnInit {
   submitProject(form : NgForm){
     let project : ProjectsCard = new ProjectsCard(this.nombreInput,
                                                   this.tecnologiasInput,
+                                                  this.descripcionInput,
                                                   this.repositorioInput,
                                                   this.urlInput)
-    this.projecService.addProject(project);
+    this.projecService.addProject(project)
+    .subscribe(dato => {
+      console.log(dato);
+    });
 
     form.reset()
     Swal.fire(

@@ -1,0 +1,73 @@
+<div class="add border">
+    <form 
+      class="form-add"
+      #form = "ngForm"
+      (submit)="form.form.valid && editProject(form)"
+    >
+      <h2 class="form-text">Editar Proyecto</h2>
+      <div class="form-container">
+        <input
+          type="text"
+          name="nombre"
+          id="nombre"
+          class="form-input"
+          [(ngModel)]="proyecto.nombre"
+          placeholder="Nombre del proyecto"
+          required
+        />
+      </div>
+      <div class="form-container">
+        <input 
+        type="text" 
+        name="tecnologias" 
+        id="tecnologias"
+        class="form-input" 
+        [(ngModel)]="proyecto.tecnologias"
+        placeholder="Tecnologias usadas"
+        required
+        />
+      </div>
+      <div class="form-container">
+        <input 
+        type="text" 
+        name="repositorio" 
+        id="repositorio" 
+        class="form-input"
+        [(ngModel)]="proyecto.url_git"
+        placeholder="Repositorio de github"
+        required
+        />
+      </div>
+      <div class="form-container">
+        <input 
+        type="text" 
+        name="url" 
+        id="url"
+        class="form-input"
+        [(ngModel)]="proyecto.url_web"
+        placeholder="Url de la Web"
+        required
+        />
+      </div>
+      <div class="form-container">
+        <textarea
+        type="text" 
+        name="descripcion" 
+        id="descripcion"
+        class="form-input" 
+        [(ngModel)]="proyecto.descripcion"
+        placeholder="Descripcion"
+        cols="30"
+        rows="10"
+        required
+        ></textarea>
+      </div>
+  
+      <div class="form-container form-buttons">
+        <button class="button-submit" type="submit">Editar Proyecto</button>
+        <button (click)="volver()" class="button-back">volver</button>
+      </div>
+  
+    </form>
+  </div>
+  

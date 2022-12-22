@@ -12,16 +12,19 @@ import { ContactComponent } from './inicio/contact/contact.component';
 import { AboutmeComponent } from './inicio/aboutme/aboutme.component';
 import { AddSkillComponent } from './inicio/add-skill/add-skill.component';
 import { LoginComponent } from './inicio/login/login.component';
+import { EditarProyectoComponent } from './inicio/editar-proyecto/editar-proyecto.component';
+import { GuardGuard } from './inicio/auth/guard.guard';
 
 const routes : Routes = [
   { path: '', component: AboutmeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'aboutme', component: AboutmeComponent },
   { path: 'nav', component: NavbarComponent },
+  { path: 'aboutme', component: AboutmeComponent },
   { path: 'skills', component: SkillComponent },
-  { path: 'addSkill', component: AddSkillComponent },
+  { path: 'addSkill', component: AddSkillComponent, canActivate : [GuardGuard]},
   { path: 'projects', component: ProjectsComponent },
-  { path: 'addProject', component : FormularioProyectosComponent },
+  { path: 'projects/:id', component: EditarProyectoComponent, canActivate : [GuardGuard]},
+  { path: 'addProject', component : FormularioProyectosComponent, canActivate : [GuardGuard] },
   { path: 'contact', component: ContactComponent },
   { path: '**', component: ErrorComponent }
 ]

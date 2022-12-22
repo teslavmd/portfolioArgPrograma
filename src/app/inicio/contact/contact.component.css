@@ -1,3 +1,16 @@
 textarea{
     resize: none;
 }
+
+.btn-wa{
+    text-decoration: none;
+    padding: 10px;
+    background: #24bf2c;
+    color: #fff;
+    border-radius: 16px;
+}
+
+.btn-wa:hover{
+    background: #fff;
+    color: #24bf2c;
+}

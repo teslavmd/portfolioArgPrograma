@@ -1,0 +1,25 @@
+.container-btn{
+    text-align: end;
+    margin-top: 1rem;
+}
+
+.btn-edit{
+    font-size: 1.325rem;
+    cursor: pointer;
+    margin-right: 5vw;
+}
+
+
+.btn-edit:visited{
+    color: aquamarine;
+}
+
+mat-slider{
+    min-width: 100%;
+}
+
+mat-progress-bar{
+    margin-top: .4rem;
+    border-radius: .2rem;
+    height: 8px;
+}

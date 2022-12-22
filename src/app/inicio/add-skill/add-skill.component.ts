@@ -4,6 +4,7 @@ import { SkillService } from '../skill/skill-cards/skill.service';
 import { FlashMessagesService } from 'flash-messages-angular';
 import { SkillCard } from '../skill/skill-cards/skill-model';
 import Swal from 'sweetalert2';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-skill',
@@ -20,6 +21,7 @@ export class AddSkillComponent implements OnInit {
 
   constructor(private skillService : SkillService, 
     private flashMessageService : FlashMessagesService,
+    private routeService : Router
     ) { }
 
   ngOnInit(): void {
@@ -30,21 +32,31 @@ export class AddSkillComponent implements OnInit {
 
     this.loading = true;
     
+
     let card = new SkillCard(this.nombreInput, this.imgPre, this.nivel)
-    this.skillService.cards.push(card)
+    console.log(this.imgPre);
+    this.skillService.addSkill(card)
+    .subscribe(dato => {
+      this.routeService.navigate(['/skills']);
+    });
+
+    if(form.valid){
+      Swal.fire(
+        'Completado!',
+        'Nueva habilidad Agregada!',
+        'success'
+      )
+    }
     
     form.reset();
     this.imgPre = '';
     
-    Swal.fire(
-      'Completado!',
-      'Nueva habilidad Agregada!',
-      'success'
-    )
+   
 
     this.loading = false;
   }
 
+  
   capturarArchivo(event : any){
     const imagen = event.target.files[0];
     this.extraerBase64(imagen).then((imagen : any) => {

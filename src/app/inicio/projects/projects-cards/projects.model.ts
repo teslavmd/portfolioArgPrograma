@@ -1,3 +1,9 @@
 export class ProjectsCard{
-    constructor(public name: string, public tecnologies: string, public urlGit: string, public urlWeb: string){}
+    id : string;
+    constructor(
+        public nombre: string, 
+        public tecnologias: string, 
+        public descripcion: string, 
+        public url_git: string, 
+        public url_web: string){}
 }

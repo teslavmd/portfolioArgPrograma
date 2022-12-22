@@ -3,8 +3,9 @@
   <div class="container">
     <app-projects-cards></app-projects-cards>
 
-    <div style="text-align: center;">
+    <div *ngIf="login" style="text-align: center;">
       <a routerLink="/addProject" style="font-size: 3rem; color: #000; "><i class="fa-solid fa-circle-plus"></i></a>
     </div>
+    
   </div>
 </section>

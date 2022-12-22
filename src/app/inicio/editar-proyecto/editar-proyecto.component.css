@@ -1,4 +1,4 @@
 textarea.form-input{
-    height: auto;
+    min-height: 200px;
     resize: none;
 }

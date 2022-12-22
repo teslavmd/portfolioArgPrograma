@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'mononoki NF';
+    font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -12,13 +12,19 @@
     --second-blur-color : #38606758;
     --third-color : #a2c11c ;
     --fourth-color :#e0e0e0;
-    --success-color : #35bcbf;
+   /* --success-color : #35bcbf; 
+    --first-color: #0c1015;
+    --second-color: #212930;
+    --second-blur-color: #384751;
+    --third-color: #536d78;
+    --fourth-color: #7399a5;*/
 }
 
 body{
     background-color: var(--second-blur-color);
 
 }
+
 
 .border{
     border-radius: .4rem;
@@ -35,11 +41,26 @@ body{
 
 }
 
+.hero-logo-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-right-to-bracket,
+.fa-arrow-up-left-from-circle{
+    color: #fff;
+    font-size: 1.125rem;
+    margin: 1rem;
+}
+
+
 .hero-text{
     color: #FFF;
     font-size: 3rem;
     font-weight: 600;
     text-align: center;
+    transform: translateY(-70px);
 }
 
 .hero-text:nth-child(2){
@@ -91,7 +112,7 @@ nav.nav-bar{
 .nav-items{
     padding: 1rem;
     list-style: none;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     font-size: 1.225rem;
 
 }
@@ -104,7 +125,6 @@ nav.nav-bar{
 
 .in-this-route{
     background-color: var(--second-color);
-    border: solid 1px var(--third-color);
     border-radius: .2rem;
 }
 
@@ -142,8 +162,6 @@ nav.nav-bar{
     min-height: 244px;
     min-width: 244px;
     text-align: center;
-    /* background: var(--fourth-color); */
-    border-radius: 50%;
     /* border: solid 2px var(--first-color); */
     padding: 0 1.2rem 1.2rem;
     /* box-shadow: 0px 0px 20px 5px #af93e34f; */
@@ -156,6 +174,7 @@ nav.nav-bar{
 .skills-card-outer{
     border-radius: .2rem;
     background: #ececec;
+    background: var(--fourth-color);
     padding: .325rem;
     min-height: 260px;
     min-width: 260px;
@@ -180,9 +199,15 @@ nav.nav-bar{
     padding-bottom: 1.325rem;
 }
 
-.btn-delete{
+.btn-delete-edit{
     cursor: pointer;
+    height: 1.4rem;
+    width: 1.4rem;
+    display: block !important;
 }
+
+
+
 
 .btn-delete:hover{
     color: #f11;
@@ -226,10 +251,11 @@ nav.nav-bar{
 
 .projects-card{
     margin: 1.3rem 0;
-    height: 300px;
+    min-height: 450px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: var(--second-color);
     border-radius: .7rem;
 }
@@ -380,7 +406,7 @@ form{
     width: 100%;
 }
 
-#Nombre, #Email, #Mensaje{
+#Nombre, #Username, #Mensaje, #Email, #password{
     border-radius: .3rem;
     border: 1px solid #222;
     padding: .5rem;
@@ -398,13 +424,13 @@ form{
     padding: .5rem 1.5rem;
     border: 1px solid #222;
     border-radius: .3rem;
-    background: var(--success-color);
+    background: var(--second-color);
     color: #FFF;
     cursor: pointer;
 }
 
 .button-action:hover{
-    background: var(--second-color);
+    background: var(--first-color);
 }
 
 .contact-me-form,
@@ -425,13 +451,6 @@ form{
 
 
 
-/* FOOTER */
-footer{
-    background: var(--first-color);
-    height: 100px;
-    bottom: 0;
-}
-
 @media screen and (max-width : 1400px){
     
 
@@ -444,7 +463,8 @@ footer{
 }
 
 @media screen and (max-width : 1200px){
-    
+
+   
     .skills-card{
         min-width: 154px;
         min-height: 154px;
@@ -568,6 +588,7 @@ footer{
         width: auto;
         height: auto;
         padding: 1.2rem;
+        border-radius: 0;
     }
 
     .projects-img,
@@ -580,8 +601,15 @@ footer{
         row-gap: 5rem;
     }
 
+
     .contact-me.container{
+        border-radius: 0;
         flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .contact-me-data{
+        height: 290px;
     }
 
     .contact-me-data,
@@ -595,5 +623,3 @@ footer{
 
 
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

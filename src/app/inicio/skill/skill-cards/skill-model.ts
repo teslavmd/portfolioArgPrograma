@@ -1,3 +1,4 @@
 export class SkillCard{
-    constructor(public title: string, public imgUrl: string, public progress: number){}
+    id : number;
+    constructor(public titulo: string, public img_url: string, public progreso: number){}
 }

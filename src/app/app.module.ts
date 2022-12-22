@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon'
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
@@ -17,13 +17,20 @@ import { FooterComponent } from './inicio/footer/footer.component';
 import { SkillCardsComponent } from './inicio/skill/skill-cards/skill-cards.component';
 import { SkillService } from './inicio/skill/skill-cards/skill.service';
 import { ProjectsService } from './inicio/projects/projects-cards/projects.service';
-import { InicioComponent } from './inicio/inicio.component';
 import { FormularioProyectosComponent } from './inicio/formulario-proyectos/formulario-proyectos.component';
 import { AboutmeComponent } from './inicio/aboutme/aboutme.component';
 import { AddSkillComponent } from './inicio/add-skill/add-skill.component';
 import { LoginComponent } from './inicio/login/login.component';
 import { FlashMessagesModule, FlashMessagesService } from 'flash-messages-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutmeService } from './inicio/aboutme/aboutme.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EditarProyectoComponent } from './inicio/editar-proyecto/editar-proyecto.component';
+import { EducationComponent } from './inicio/education/education.component';
+import { AddEducationComponent } from './inicio/add-education/add-education.component';
+import { AuthenticationService } from './inicio/auth/authentication.service';
+import { InterceptorService } from './inicio/auth/interceptor.service';
+
 
 
 @NgModule({
@@ -37,16 +44,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactComponent,
     FooterComponent,
     SkillCardsComponent,
-    InicioComponent,
     FormularioProyectosComponent,
     AboutmeComponent,
     AddSkillComponent,
     LoginComponent,
+    EditarProyectoComponent,
+    EducationComponent,
+    AddEducationComponent
 
     
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatIconModule,
     AppRoutingModule,
     FormsModule,
@@ -59,6 +69,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SkillService,
     ProjectsService,
     FlashMessagesService,
+    AboutmeService,
+    AuthenticationService,
+    [{
+      provide: HTTP_INTERCEPTORS,
+        useClass: InterceptorService,
+        multi: true
+      }]
   ],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="container">
+  <form #form="ngForm" (submit)="form.form.valid && login($event)" class="contact-me-form">
+      <h3 style="text-align: center;">Panel de administrador</h3>
+        <div class="contact-me-input">
+          <label for="Username">Username:</label>
+          <input 
+          type="text" 
+          name="username"
+          [(ngModel)]="username"
+          id="Username" 
+          placeholder="Usuario" 
+          required
+          />
+        </div>
+        <div class="contact-me-input">
+          <label for="password" >Contraseña:</label>
+          <input
+            name="contrasenia"
+            type="password"
+            id="password"
+            [(ngModel)]="contrasenia"
+            placeholder="Contraseña"
+            required
+          />
+        </div>
+        
+        <div class="btn-login">
+            <button type="submit" class="button-action">Enviar</button>
+        </div>
+      </form>
+</div>

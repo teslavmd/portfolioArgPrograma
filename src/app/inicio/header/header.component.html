@@ -1,4 +1,13 @@
 <header class="hero-image">
+  <div class="hero-logo-login">
+    <img src="../../../assets/APLogo.png" alt="APlogo" width="140px" style="margin: 1rem;">
+    <span *ngIf="!login" routerLink="/login" role="link">
+      <i  class="fa-solid fa-right-to-bracket"></i>
+    </span>
+    <span *ngIf="login" (click)="logOut()" >
+      <i  class="fa-solid fa-right-to-bracket"> log out</i>
+    </span>
+  </div>
     <div class="center-items">
       <h1 class="hero-text">Hola, Soy Matías</h1>
       <h2 class="hero-text">Desarrollador Web</h2>

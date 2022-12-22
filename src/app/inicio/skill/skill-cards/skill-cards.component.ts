@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SkillCard } from './skill-model';
 import { SkillService } from './skill.service';
 import  Swal from 'sweetalert2'
+import { AuthenticationService } from '../../auth/authentication.service';
 
 
 @Component({
@@ -11,16 +12,32 @@ import  Swal from 'sweetalert2'
 })
 export class SkillCardsComponent implements OnInit {
 
-  login : boolean = true;
-  cards : SkillCard[] = [];
+  isEdit : boolean = false;
+  login : boolean = false;
+  cards : SkillCard[];
+  nivel : number;
 
-  constructor(private skillService: SkillService) { }
-
-  ngOnInit(): void {
-    this.cards = this.skillService.cards;
+  constructor(private skillService: SkillService, private authService : AuthenticationService) { 
   }
 
-  deleteCard(card: SkillCard){
+  ngOnInit(): void {
+    this.getCards()
+    console.log(this.cards);
+    this.login = this.authService.isLogged();
+  }
+
+
+  //SUSCRIBIRSE A LA FUNCION QUE RETORNA LA LISTA DE CARDS
+  getCards(){
+    this.skillService.getCard().subscribe(
+      (cardFromDB : SkillCard[]) => {
+        this.cards = cardFromDB;
+      }
+    )
+  }
+
+  //ELIMINAR LAS HABILIDADES
+  deleteCard(id : number){
     Swal.fire({
       title: 'Estas seguro?',
       text: "Borrar un habilidad",
@@ -31,17 +48,36 @@ export class SkillCardsComponent implements OnInit {
       confirmButtonText: 'Borrar!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.skillService.deleteCard(card)
+        this.skillService.deleteCard(id)
+        .subscribe(dato => {
+         
+        })
         Swal.fire(
           'Borrado!',
           'La habilidad ha sido borrada.',
           'success'
         )
+        location.reload();
+        this.getCards();
       }
     })
   }
 
+  //TOGGLE BTN 
+   editBtn(){
+    if(this.isEdit){
+      this.isEdit = false;
+    }else{
+      this.isEdit = true;
+    }
+  }
 
+  //EDITAR EL NIVEL DE PROGRESO
+  editLevel(card : SkillCard){
+    this.skillService.editLevel(card)
+    .subscribe(data => {
+    });
+  }
 
 
 }

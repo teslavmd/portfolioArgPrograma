@@ -24,6 +24,7 @@
       class="form-input" 
       [(ngModel)]="tecnologiasInput"
       placeholder="Tecnologias usadas"
+      required
       />
     </div>
     <div class="form-container">
@@ -34,6 +35,7 @@
       class="form-input"
       [(ngModel)]="repositorioInput"
       placeholder="Repositorio de github"
+      required
       />
     </div>
     <div class="form-container">
@@ -44,7 +46,21 @@
       class="form-input"
       [(ngModel)]="urlInput"
       placeholder="Url de la Web"
+      required
       />
+    </div>
+    <div class="form-container">
+      <textarea
+      type="text" 
+      name="descripcion" 
+      id="descripcion"
+      class="form-input" 
+      [(ngModel)]="descripcionInput"
+      placeholder="Descripcion"
+      cols="30"
+      rows="3.5"
+      required
+      ></textarea>
     </div>
 
     <div class="form-container form-buttons">

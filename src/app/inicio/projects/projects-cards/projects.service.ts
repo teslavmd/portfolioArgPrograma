@@ -1,36 +1,36 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { ProjectsCard } from "./projects.model";
 
 
 @Injectable()
 export class ProjectsService{
 
-    projectsCards : ProjectsCard[] = [
-        new ProjectsCard(
-            'Landing Page de Netflix',
-            'HTML5, CSS y JS',
-            'https://github.com/teslavmd/netflix-landing-page',
-            'https://landing-page-netflix.netlify.app'
-        ),
-        new ProjectsCard(
-            'Busar Información de una direccion IP',
-            'HTML5, CSS, JS y API -> "IP Geolocation and Threat Detection" by Ipregistry.',
-            'https://github.com/teslavmd/ip-info',
-            'https://infoip-vmd.netlify.app'
-        ),
-    ];
+    urlBD : string = "https://informal-zaneta-teslavmd.koyeb.app/api/argp/projects";
+
+    //urlBD : string = "http://localhost:8080/api/argp/projects";
 
 
-    constructor(){}
+    constructor(private httpClient : HttpClient){}
 
-    deleteCard(card: ProjectsCard){
-        const indice = this.projectsCards.indexOf(card);
-
-        this.projectsCards.splice(indice, 1);
+    getProjects() : Observable<ProjectsCard[]>{
+        return this.httpClient.get<ProjectsCard[]>(`${this.urlBD}`);
+    }
+    
+    addProject(project : ProjectsCard) : Observable<ProjectsCard>{
+        return this.httpClient.post<ProjectsCard>(`${this.urlBD}`, project);
+    }
+    
+    deleteCard(card: ProjectsCard) : Observable<ProjectsCard>{
+        return this.httpClient.delete<ProjectsCard>(`${this.urlBD}/${card.id}`)
     }
 
-    addProject(project : ProjectsCard){
-        this.projectsCards.push(project);
+    searchProject(id : number) : Observable<ProjectsCard>{
+        return this.httpClient.get<ProjectsCard>(`${this.urlBD}/${id}`);
     }
-
+    
+    editProject( card : ProjectsCard, id : number) : Observable<ProjectsCard>{
+        return this.httpClient.put<ProjectsCard>(`${this.urlBD}/${id}`, card)
+    }
 }

@@ -1,0 +1,9 @@
+span{
+    padding: 5px;
+    border-radius: .2rem;
+}
+
+span:hover{
+    background-color: #42f;
+    transition: ease-in 300ms;
+}
