@@ -13,6 +13,7 @@
       <form 
       class="contact-me-form" 
       #form="ngForm"
+      action="https://formspree.io/f/mlekrvzk/"
       method="POST"
       (submit)="form.form.valid && submitContact($event, form)"
       >

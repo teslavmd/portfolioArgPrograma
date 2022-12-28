@@ -31,10 +31,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(JSON.stringify(this.credenciales)).subscribe(
       data => {
         this.isLogin = this.authService.isLogged()
-        this.redirect();
       }
     )
+
+    setTimeout(()=>{
+      this.redirect();
+    },1200)
   }
+  
 
 
   redirect(){
@@ -43,6 +47,12 @@ export class LoginComponent implements OnInit {
         location.reload();
       }, 1000)
       this.router.navigate(["/aboutme"]);
+    }else{
+      Swal.fire(
+        'Error!',
+        'Credenciales invalidas',
+        'error'
+      )
     }
   }
 }

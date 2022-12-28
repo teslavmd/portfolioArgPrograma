@@ -50,9 +50,8 @@ export class ContactComponent implements OnInit {
       mensaje
     }
 
-   
 
-    return this.http.post("https://formsubmit.co/6b8b638cd9e0687e706e61f7e62f2502", JSON.stringify(data), {responseType : "arraybuffer"});
+    return this.http.post("https://formspree.io/f/mlekrvzk", JSON.stringify(data), {responseType : "arraybuffer"}).pipe();
   }
 
 
