@@ -621,5 +621,8 @@ form{
         width: 95vw;
     }
 
+    .border{
+        border-radius: 0;
+    }
 
 }

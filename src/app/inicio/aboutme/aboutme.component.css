@@ -28,7 +28,7 @@ textarea.aboutme-content-text{
     font-size: 1.325rem;
     padding: 1.425rem;
     line-height: 2.5rem;
-    border-radius: .2rem;
+    /* border-radius: .2rem; */
 }
 
 .edit{
@@ -44,13 +44,35 @@ textarea.aboutme-content-text{
 
 .btn-download{
     padding: .5rem 1rem;
-    border-radius: 1rem;
+    border-radius: .3rem;
     background: var(--third-color);
     text-decoration: none;
     color: #000;
-
+    margin: 1rem;
 
 }
+
+
+.btn-download:hover{
+    color: var(--third-color);
+    background-color: #222;
+}
+
+.btn-upload{
+    border: none;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    border-radius: .3rem;
+    background: var(--third-color);
+    cursor: pointer;
+}
+
+.btn-upload:hover{
+    background: #000;
+    color: var(--third-color);
+}
+
+
 
 @media screen and (max-width : 700px){
     .aboutme-content-text{

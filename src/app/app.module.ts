@@ -26,7 +26,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutmeService } from './inicio/aboutme/aboutme.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditarProyectoComponent } from './inicio/editar-proyecto/editar-proyecto.component';
-import { EducationComponent } from './inicio/education/education.component';
 import { AddEducationComponent } from './inicio/add-education/add-education.component';
 import { AuthenticationService } from './inicio/auth/authentication.service';
 import { InterceptorService } from './inicio/auth/interceptor.service';
@@ -49,7 +48,6 @@ import { InterceptorService } from './inicio/auth/interceptor.service';
     AddSkillComponent,
     LoginComponent,
     EditarProyectoComponent,
-    EducationComponent,
     AddEducationComponent
 
     
