@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       err => {
         Swal.fire(
           'Error!',
-          'Credenciales invalidas, si entro por aca',
+          'Credenciales invalidas. Ingrese nuevamente los datos',
           'error'
         )  
         console.error(err);

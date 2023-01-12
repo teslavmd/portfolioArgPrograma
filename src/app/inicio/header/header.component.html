@@ -1,7 +1,7 @@
 <header class="hero-image">
   <div class="hero-logo-login">
     <img src="../../../assets/APLogo.png" alt="APlogo" width="140px" style="margin: 1rem;">
-    <span *ngIf="!login" routerLink="/login" role="link">
+    <span *ngIf="!login" routerLink="/login" (click)="toLogin()" role="link">
       <i  class="fa-solid fa-right-to-bracket"></i>
     </span>
     <span *ngIf="login" (click)="logOut()" >

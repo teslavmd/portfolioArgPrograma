@@ -21,4 +21,11 @@ export class HeaderComponent implements OnInit {
     this.authService.logOut();
   }
 
+  toLogin(){
+    setTimeout(() => {
+      document.getElementById("login")?.scrollIntoView();
+    }, 500);
+  }
 }
+
+
