@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { AuthenticationService } from '../auth/authentication.service';
-import { TextoAboutMe } from './aboutme.model';
+import { InfoAboutMe } from './aboutme.model';
 import { AboutmeService } from './aboutme.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { AboutmeService } from './aboutme.service';
 export class AboutmeComponent implements OnInit {
 
   login : boolean = false;
-  texto : TextoAboutMe;
+  aboutme : InfoAboutMe;
   isEditable : boolean = false;
   constructor(private aboutService : AboutmeService, private authService : AuthenticationService) { }
 
@@ -23,16 +24,30 @@ export class AboutmeComponent implements OnInit {
   getTexto(){
     this.aboutService.getInfoAbout()
     .subscribe(info => {
-      this.texto = info;
+      this.aboutme = info;
     });
   }
 
 
-  cargarTexto(texto : TextoAboutMe){
+  //MODIFICAR LA INFORMACION SOMBRE MI
+  cargarInfo(texto : InfoAboutMe){
     this.aboutService.addInfoAbout(texto)
     .subscribe(dato => {
-      console.log(dato);
-    })
+      Swal.fire(
+        'Informacion cargada!',
+        "",
+        'success'
+      )
+    },
+    err =>{
+      Swal.fire(
+        'Ocurrio un error!',
+        "Verifica que los datos ingresados sean correctos o intentalo de nuevo",
+        'error'
+      )
+    }
+    
+    )
   }
 
   editarTexto(){

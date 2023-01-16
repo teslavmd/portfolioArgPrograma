@@ -1,30 +1,69 @@
 <div class="container container-aboutme">
   <h2 class="aboutme-title">Acerca De Mí</h2>
   <div class="aboutme-content border">
-    <div *ngIf="login" class="edit"><i (click)="editarTexto()" class="fa-solid fa-pen-to-square"></i></div>
-    <form *ngIf="isEditable" (submit)="cargarTexto(texto)">
-      <textarea 
-      type="text" 
-      name="abotumeText"  
-      [(ngModel)]="texto.texto" 
-      class="aboutme-content-text" 
-      required style="
-      resize: none; 
-      width: 100%;
-      "
+    <div *ngIf="login" class="edit">
+      <i (click)="editarTexto()" class="fa-solid fa-pen-to-square"></i>
+    </div>
+
+    <!-- FORMULARIO  -->
+    <form
+      class="aboutme-content-text"
+      *ngIf="isEditable"
+      (submit)="cargarInfo(aboutme)"
+    >
+      <div class="aboutme-content-info">
+        <div>
+          <label for="nombre"
+            >Nombre :
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="aboutme.nombre"/>
+          </label>
+          <label for="apellido"
+            >Apellido :
+            <input type="text" id="apellido" name="apellido" [(ngModel)]="aboutme.apellido"/>
+          </label>
+        </div>
+
+        <div>
+          <label for="edad"
+            >Edad :
+            <input type="number" id="edad" name="edad" [(ngModel)]="aboutme.edad"/>
+          </label>
+
+          <label for="fecha"
+            >Nacido el:
+            <input type="date" id="fecha" name="fecha" [(ngModel)]="aboutme.fecha"/>
+          </label>
+        </div>
+      </div>
+      <textarea
+        type="text"
+        name="abotumeText"
+        [(ngModel)]="aboutme.texto"
+        class="aboutme-content-text"
+        required
+        style="resize: none; width: 100%"
       ></textarea>
-      <label style="text-align: end; width: 100%;">
+      <label style="text-align: end; width: 100%">
         <button type="submit" class="btn-upload">Subir</button>
       </label>
     </form>
+
+    <!-- DATOS -->
     <div *ngIf="!isEditable" class="aboutme-content-text">
-      
-        <p>{{texto.texto}}</p>   
-
+      <div class="aboutme-content-info">
+        <div class="info">
+          <h4>Nombre : {{aboutme.nombre}}</h4>
+          <h4>Apellido : {{aboutme.apellido}}</h4>
+        </div>
+        <div class="info">
+          <h4>Edad : {{aboutme.edad}}</h4>
+          <h4>Nacido el : {{aboutme.fecha}}</h4>
+        </div>
+      </div>
+      <p>
+       {{aboutme.texto}}  
+      </p>
     </div>
-
-
-
 
     <!-- <h3 class="aboutme-title">Educación</h3>
 
@@ -32,12 +71,15 @@
     <div class="aboutme-content text">
       
     </div> -->
-
   </div>
 </div>
 
-
 <div class="container align-btn">
-  <a href="../../../assets/cv.pdf" class="btn-download" download="resumen-matias-villafañe">Descargar resumen</a>
+  <a
+    href="../../../assets/cv.pdf"
+    class="btn-download"
+    download="resumen-matias-villafañe"
+    >Descargar resumen</a
+  >
   <a routerLink="/contact" class="btn-download">Contacto</a>
 </div>

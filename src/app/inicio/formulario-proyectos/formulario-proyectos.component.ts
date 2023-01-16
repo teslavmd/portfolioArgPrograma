@@ -38,15 +38,22 @@ export class FormularioProyectosComponent implements OnInit {
                                                   this.urlInput)
     this.projecService.addProject(project)
     .subscribe(dato => {
-      console.log(dato);
+      Swal.fire(
+        'Completado!',
+        'Nuevo proyecto agregado!',
+        'success'
+      )
+      form.reset()
+    }, err => {
+      Swal.fire(
+        'Ha ocurrido un error!',
+        'Verfica que lo datos esten bien ingresados... o intentalo otra vez!',
+        'error'
+      )
     });
 
-    form.reset()
-    Swal.fire(
-      'Completado!',
-      'Nueva habilidad Agregada!',
-      'success'
-    )
+    
+    
 
 
   }

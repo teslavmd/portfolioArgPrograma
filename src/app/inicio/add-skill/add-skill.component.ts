@@ -19,8 +19,7 @@ export class AddSkillComponent implements OnInit {
   loading : boolean;
 
 
-  constructor(private skillService : SkillService, 
-    private flashMessageService : FlashMessagesService,
+  constructor(private skillService : SkillService,
     private routeService : Router
     ) { }
 
@@ -37,18 +36,22 @@ export class AddSkillComponent implements OnInit {
     console.log(this.imgPre);
     this.skillService.addSkill(card)
     .subscribe(dato => {
-      this.routeService.navigate(['/skills']);
-    });
-
-    if(form.valid){
       Swal.fire(
         'Completado!',
         'Nueva habilidad Agregada!',
         'success'
       )
-    }
-    
-    form.reset();
+      form.reset();
+      this.routeService.navigate(['/skills']);
+    },
+    err => {
+      Swal.fire(
+        'Ha ocurrido un error!',
+        'Intentalo otra vez... o verifica que la imagén NO sea de gran tamaño!',
+        'error'
+      )
+    });
+
     this.imgPre = '';
     
    

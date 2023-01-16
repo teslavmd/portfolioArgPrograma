@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -30,10 +31,16 @@ export class ContactComponent implements OnInit {
         this.mensaje
       ).subscribe(
         data => {
-          data;
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Su mensaje ha sido enviado, muchas gracias :D!',
+            showConfirmButton: false,
+            timer: 1700
+          })
+          form.reset();
         }
       )
-      form.reset();
     }
   }
 

@@ -1,3 +1,4 @@
+
 .container-aboutme{
     margin-bottom: 1rem;
 }
@@ -17,9 +18,13 @@
     margin-top: 3rem;
 }
 
+
+
+
 textarea.aboutme-content-text{
     min-height: 300px;
 }
+
 
 .aboutme-content-text{
     min-height: 100px;
@@ -30,6 +35,28 @@ textarea.aboutme-content-text{
     line-height: 2.5rem;
     /* border-radius: .2rem; */
 }
+
+.aboutme-content-info{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+}
+
+
+.aboutme-content-info .info{
+    width: 50%;
+}
+
+.aboutme-content-info input{
+    background-color: var(--first-color);
+    width: 90%;
+    border: 1px solid #222;
+    padding: 10px;
+    outline: none;
+}
+
 
 .edit{
     width: 100%;
@@ -82,3 +109,14 @@ textarea.aboutme-content-text{
     }
 
 }
+
+@media screen and (max-width : 500px){
+    .aboutme-content-info{
+        flex-direction: column;
+    }
+
+    .aboutme-content-info .info{
+        width: 100%;
+    }
+}
+

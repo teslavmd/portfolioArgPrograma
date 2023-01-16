@@ -47,13 +47,20 @@ export class ProjectsCardsComponent implements OnInit {
       if (result.isConfirmed) {
         this.projectsService.deleteCard(card)
         .subscribe(dato => {
-          console.log(dato);
+          Swal.fire(
+            'Borrado',
+            'Tu proyecto ha sido borrado.',
+            'success'
+          )
+        },
+        err =>{
+          Swal.fire(
+            'No se pudo borrar el proyecto!',
+            "Intentalo otra vez",
+            'error'
+          )
         });
-        Swal.fire(
-          'Borrado',
-          'Tu proyecto ha sido borrado.',
-          'success'
-        )
+        
         location.reload();
       }
     })
