@@ -1,3 +1,5 @@
+@import url(hamburger.css);
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -549,6 +551,7 @@ form{
     nav.nav-bar{
         padding: 0;
         text-align: end;
+        height: 50px;
     }
 
     .nav-list{
@@ -570,7 +573,6 @@ form{
     }
 
     .hamb-btn{
-        transform: translate(-10px ,18px);
         visibility: visible;
         z-index: 2000;
     }
