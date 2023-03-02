@@ -2,40 +2,25 @@ import { Injectable } from '@angular/core';
 import { SkillCard } from './skill-model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillService {
-
-  urlBD = "https://informal-zaneta-teslavmd.koyeb.app/api/argp/skills";
-  //urlBD = "http://localhost:8080/api/argp/skills";
-
-  
-
+  urlBD = environment.urlBD;
   constructor(private httpClient : HttpClient) { }
-
-
   //METODO PARA OBTENER LAS HABILIDADES DE LA BASE DE DATOS.
   getCard(): Observable<SkillCard[]>{  
-    return this.httpClient.get<SkillCard[]>(`${this.urlBD}`);
+    return this.httpClient.get<SkillCard[]>(`${this.urlBD}/skills`);
   }
-
-
   addSkill(skill : SkillCard): Observable<SkillCard>{
-    return this.httpClient.post<SkillCard>(`${this.urlBD}`, skill);
+    return this.httpClient.post<SkillCard>(`${this.urlBD}/skills`, skill);
   }
-
   deleteCard(id : number ): Observable<SkillCard>{
-    return this.httpClient.delete<SkillCard>(`${this.urlBD}/${id}`);    
+    return this.httpClient.delete<SkillCard>(`${this.urlBD}/skills/${id}`);    
   }
-
-
   editLevel(card : SkillCard):Observable<SkillCard>{
-    return this.httpClient.put<SkillCard>(`${this.urlBD}/${card.id}`, card)
+    return this.httpClient.put<SkillCard>(`${this.urlBD}/skills/${card.id}`, card)
   }
-
-
-
-
 }

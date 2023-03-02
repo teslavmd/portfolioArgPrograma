@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { map } from "rxjs";
 
 import { Router } from "@angular/router";
+import { environment } from "src/environments/environment";
 
 
 @Injectable({
@@ -11,10 +12,7 @@ import { Router } from "@angular/router";
 })
 export class AuthenticationService{
 
-    
-
-    //url : string = "http://localhost:8080/generate-token";
-    url : string = "https://informal-zaneta-teslavmd.koyeb.app/generate-token";
+    url : string = environment.urlAuth;
     
     currentUserSubject : BehaviorSubject<any>;
 

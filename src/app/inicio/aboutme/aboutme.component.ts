@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import Swal from 'sweetalert2';
 import { AuthenticationService } from '../auth/authentication.service';
 import { InfoAboutMe } from './aboutme.model';
@@ -14,7 +15,14 @@ export class AboutmeComponent implements OnInit {
   login : boolean = false;
   aboutme : InfoAboutMe;
   isEditable : boolean = false;
-  constructor(private aboutService : AboutmeService, private authService : AuthenticationService) { }
+  isLoading : boolean = true;
+     
+
+
+  constructor(
+    private aboutService : AboutmeService, 
+    private authService : AuthenticationService
+    ) { }
 
   ngOnInit(): void {
     this.getTexto();
@@ -23,6 +31,12 @@ export class AboutmeComponent implements OnInit {
 
   getTexto(){
     this.aboutService.getInfoAbout()
+    .pipe(
+      map(info => {
+        this.isLoading = false;
+        return info;
+      })
+    )
     .subscribe(info => {
       this.aboutme = info;
     });

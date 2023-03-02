@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  urlBD : "https://informal-zaneta-teslavmd.koyeb.app/api/argp",
+  urlAuth : "https://informal-zaneta-teslavmd.koyeb.app/generate-token"
 };

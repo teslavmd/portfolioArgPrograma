@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { InfoAboutMe } from './aboutme.model'
 
 
@@ -8,17 +9,17 @@ import { InfoAboutMe } from './aboutme.model'
 export class AboutmeService{
 
     info : InfoAboutMe;
-    urlBD : string = "https://informal-zaneta-teslavmd.koyeb.app/api/argp/aboutme";
-    //urlBD : string = "http://localhost:8080/api/argp/aboutme";
+    urlBD : string = environment.urlBD;
+    
     constructor(private httpClient : HttpClient){}
 
 
     getInfoAbout(): Observable<InfoAboutMe>{
-        return this.httpClient.get<InfoAboutMe>(`${this.urlBD}`);
+        return this.httpClient.get<InfoAboutMe>(`${this.urlBD}/aboutme`);
     }   
     
     addInfoAbout(data : InfoAboutMe): Observable<InfoAboutMe>{
-        return this.httpClient.put<InfoAboutMe>(`${this.urlBD}`, data);
+        return this.httpClient.put<InfoAboutMe>(`${this.urlBD}/aboutme`, data);
     }
     
 

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './inicio/header/header.component';
@@ -61,7 +62,8 @@ import { InterceptorService } from './inicio/auth/interceptor.service';
     FlashMessagesModule.forRoot(),
     BrowserAnimationsModule,
     MatSliderModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     SkillService,

@@ -1,3 +1,6 @@
+<div *ngIf="isLoading" class="mat-spinner">
+  <mat-spinner></mat-spinner>
+</div>
 <div class="container container-btn">
   <i *ngIf="login" class="fa-solid fa-pen-to-square btn-edit" (click)="editBtn()"></i>
 </div>

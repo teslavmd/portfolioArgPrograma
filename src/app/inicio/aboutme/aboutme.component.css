@@ -100,6 +100,10 @@ textarea.aboutme-content-text{
 }
 
 
+.mat-spinner{
+    height: 200px;
+    margin: 20px;
+}
 
 @media screen and (max-width : 700px){
     .aboutme-content-text{

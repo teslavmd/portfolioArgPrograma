@@ -3,6 +3,7 @@ import { SkillCard } from './skill-model';
 import { SkillService } from './skill.service';
 import  Swal from 'sweetalert2'
 import { AuthenticationService } from '../../auth/authentication.service';
+import { map } from 'rxjs';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class SkillCardsComponent implements OnInit {
   login : boolean = false;
   cards : SkillCard[];
   nivel : number;
+  isLoading : boolean = true;
 
   constructor(private skillService: SkillService, private authService : AuthenticationService) { 
   }
@@ -29,7 +31,15 @@ export class SkillCardsComponent implements OnInit {
 
   //SUSCRIBIRSE A LA FUNCION QUE RETORNA LA LISTA DE CARDS
   getCards(){
-    this.skillService.getCard().subscribe(
+    this.skillService.getCard()
+    .pipe(
+      map((cardFromDB) => {
+        this.isLoading = false;
+        if(cardFromDB === null) return [];
+        return cardFromDB;
+      })
+    )
+    .subscribe(
       (cardFromDB : SkillCard[]) => {
         this.cards = cardFromDB;
       }
