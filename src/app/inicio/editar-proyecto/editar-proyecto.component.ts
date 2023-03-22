@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { ProjectsCard } from '../projects/projects-cards/projects.model';
-import { ProjectsService } from '../projects/projects-cards/projects.service';
+import { ProjectsCard } from '../../models/projects.model';
+import { ProjectsService } from '../../services/projects.service';
 
 @Component({
   selector: 'app-editar-proyecto',

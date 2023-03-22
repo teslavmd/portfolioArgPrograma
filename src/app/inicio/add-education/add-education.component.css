@@ -1,0 +1,69 @@
+.container-education{
+    width: 100%;
+    min-height: 150px;
+    background-color: var(--first-color);
+    padding: 16px;
+    margin-bottom: 10px;
+}
+
+.education-input{
+    border: none;
+    outline: none;
+    background: var(--second-blur-color);
+    margin: 5px;
+    min-height: 32px;
+    width: 100%;
+    padding: 10px;
+}
+
+.input-fecha{
+    width: 100%;
+}
+
+label{
+    width: 100%;
+}
+
+label .education-input{
+    margin: 10px 0;
+}
+
+textarea{
+    resize: vertical;
+}
+
+.education-button{
+    width: 100%;
+    margin-top: 10px;
+    height: 32px;
+    text-align: end;
+}
+
+.education-button button{
+    height: 100%;
+    padding: 8px;
+
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: var(--second-color);
+}
+
+.education-button button:hover{
+    background: var(--second-blur-color);
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.buttons mat-icon{
+    margin-left: 20px;
+}
+
+.buttons mat-icon:hover{
+    border-bottom: solid 1px #000;
+    transition: 300ms;
+}

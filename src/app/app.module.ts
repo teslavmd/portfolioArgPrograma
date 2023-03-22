@@ -1,3 +1,4 @@
+//MODULOS
 import { NgModule } from '@angular/core';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon'
@@ -6,7 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FlashMessagesModule, FlashMessagesService } from 'flash-messages-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+/***********/
 
+
+
+//COMPONENTES
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './inicio/header/header.component';
 import { NavbarComponent } from './inicio/navbar/navbar.component';
@@ -16,22 +24,22 @@ import { ProjectsCardsComponent } from './inicio/projects/projects-cards/project
 import { ContactComponent } from './inicio/contact/contact.component';
 import { FooterComponent } from './inicio/footer/footer.component';
 import { SkillCardsComponent } from './inicio/skill/skill-cards/skill-cards.component';
-import { SkillService } from './inicio/skill/skill-cards/skill.service';
-import { ProjectsService } from './inicio/projects/projects-cards/projects.service';
 import { FormularioProyectosComponent } from './inicio/formulario-proyectos/formulario-proyectos.component';
 import { AboutmeComponent } from './inicio/aboutme/aboutme.component';
 import { AddSkillComponent } from './inicio/add-skill/add-skill.component';
-import { LoginComponent } from './inicio/login/login.component';
-import { FlashMessagesModule, FlashMessagesService } from 'flash-messages-angular';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AboutmeService } from './inicio/aboutme/aboutme.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EditarProyectoComponent } from './inicio/editar-proyecto/editar-proyecto.component';
 import { AddEducationComponent } from './inicio/add-education/add-education.component';
-import { AuthenticationService } from './inicio/auth/authentication.service';
-import { InterceptorService } from './inicio/auth/interceptor.service';
+import { LoginComponent } from './inicio/login/login.component';
+/***********/
 
 
+//SERVICIOS
+import { AboutmeService } from './services/aboutme.service';
+import { SkillService } from './services/skill.service';
+import { ProjectsService } from './services/projects.service';
+import { InterceptorService } from './auth/interceptor.service';
+import { AuthenticationService } from './auth/authentication.service';
+/***********/
 
 @NgModule({
   declarations: [

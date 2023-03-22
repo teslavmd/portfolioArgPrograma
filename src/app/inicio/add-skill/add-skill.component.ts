@@ -1,8 +1,8 @@
 import { Component, OnInit, Sanitizer } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { SkillService } from '../skill/skill-cards/skill.service';
+import { SkillService } from '../../services/skill.service';
 import { FlashMessagesService } from 'flash-messages-angular';
-import { SkillCard } from '../skill/skill-cards/skill-model';
+import { SkillCard } from '../../models/skill-model';
 import Swal from 'sweetalert2';
 import { Route, Router } from '@angular/router';
 

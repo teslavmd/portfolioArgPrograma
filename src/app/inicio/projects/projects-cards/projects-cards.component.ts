@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsCard } from './projects.model';
-import { ProjectsService } from './projects.service';
+import { ProjectsCard } from '../../../models/projects.model';
+import { ProjectsService } from '../../../services/projects.service';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../auth/authentication.service';
+import { AuthenticationService } from '../../../auth/authentication.service';
 import { map } from 'rxjs';
 
 

@@ -13,7 +13,7 @@ import { AboutmeComponent } from './inicio/aboutme/aboutme.component';
 import { AddSkillComponent } from './inicio/add-skill/add-skill.component';
 import { LoginComponent } from './inicio/login/login.component';
 import { EditarProyectoComponent } from './inicio/editar-proyecto/editar-proyecto.component';
-import { GuardGuard } from './inicio/auth/guard.guard';
+import { GuardGuard } from './auth/guard.guard';
 
 const routes : Routes = [
   { path: '', component: AboutmeComponent },

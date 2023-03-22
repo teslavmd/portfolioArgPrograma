@@ -1,1 +1,60 @@
-<p>add-education works!</p>
+<div *ngFor="let education of listEducation" class="container-education">
+    <div *ngIf="login" class="buttons">
+        <mat-icon class="btn-delete-edit">edit</mat-icon>
+        <mat-icon (click)="deleteEducation(education.id)" class="btn-delete-edit">delete</mat-icon>
+    </div>
+    <div class="education-content">
+        <div class="education-nombre">
+            <h2>{{ education.nombre }}</h2>
+        </div>
+        <div class="education-fecha"><p>{{ education.fechaInicio }} // {{ education.fechaFinal }}</p></div>
+        <div class="education-orientacion">
+            <h3 style="white-space: pre-line;">{{ education.orientacion }}</h3>
+        </div>
+    </div>
+
+    <!-- FORMULARIO PARA EDITAR CADA EDUCACION CARD -->
+</div>
+
+
+
+<div *ngIf="login" style="text-align: center;">
+    <a (click)="showForm()" style="font-size: 3rem; color: #000; "><i class="fa-solid fa-circle-plus"></i></a>
+  </div>
+
+<div *ngIf="show" class="container-education">
+    <h4 style="text-align: center;">Añadir educación</h4>
+    <form #form="ngForm" (submit)="form.valid && addEducation($event, form)" class="education form">
+        <input 
+        type="text"
+        name="nombreEducacion"
+        placeholder="Nombre de la institucion/entidad"
+        [(ngModel)]="nombreEducacion"
+        class="education-input">
+        <label>
+            Fecha Inicio:
+            <input 
+            type="date" 
+            name="fechaInicio"
+            class="education-input"
+            [(ngModel)]="fechaInicio">
+        </label>
+        <label>
+            Fecha Final (Opcional)
+            <input 
+            type="date" 
+            name="fechaFinal"
+            class="education-input"
+            [(ngModel)]="fechaFinal">
+        </label>
+        <textarea 
+        type="text"
+        name="orientacion" 
+        class="education-input" placeholder="Orientación"
+        [(ngModel)]="orientacion"></textarea>
+        <div class="education-button">
+            <button type="submit">Cargar educación</button>
+        </div> 
+
+    </form>
+</div>

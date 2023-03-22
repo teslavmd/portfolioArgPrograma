@@ -1,4 +1,3 @@
-
 .container-aboutme{
     margin-bottom: 1rem;
 }
@@ -18,13 +17,9 @@
     margin-top: 3rem;
 }
 
-
-
-
 textarea.aboutme-content-text{
     min-height: 300px;
 }
-
 
 .aboutme-content-text{
     min-height: 100px;
@@ -44,7 +39,6 @@ textarea.aboutme-content-text{
     margin: 10px auto;
 }
 
-
 .aboutme-content-info .info{
     width: 50%;
 }
@@ -56,7 +50,6 @@ textarea.aboutme-content-text{
     padding: 10px;
     outline: none;
 }
-
 
 .edit{
     width: 100%;
@@ -79,7 +72,6 @@ textarea.aboutme-content-text{
 
 }
 
-
 .btn-download:hover{
     color: var(--third-color);
     background-color: #222;
@@ -98,7 +90,6 @@ textarea.aboutme-content-text{
     background: #000;
     color: var(--third-color);
 }
-
 
 .mat-spinner{
     height: 200px;

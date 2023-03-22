@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillCard } from './skill-model';
-import { SkillService } from './skill.service';
+import { SkillCard } from '../../../models/skill-model';
+import { SkillService } from '../../../services/skill.service';
 import  Swal from 'sweetalert2'
-import { AuthenticationService } from '../../auth/authentication.service';
+import { AuthenticationService } from '../../../auth/authentication.service';
 import { map } from 'rxjs';
 
 

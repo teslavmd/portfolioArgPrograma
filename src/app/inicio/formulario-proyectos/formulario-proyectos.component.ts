@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { ProjectsService } from '../projects/projects-cards/projects.service';
-import { ProjectsCard } from '../projects/projects-cards/projects.model';
+import { ProjectsService } from '../../services/projects.service';
+import { ProjectsCard } from '../../models/projects.model';
 import Swal from 'sweetalert2';
 
 @Component({

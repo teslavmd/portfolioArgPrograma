@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import Swal from 'sweetalert2';
-import { AuthenticationService } from '../auth/authentication.service';
-import { InfoAboutMe } from './aboutme.model';
-import { AboutmeService } from './aboutme.service';
+import { AuthenticationService } from '../../auth/authentication.service';
+import { InfoAboutMe } from '../../models/aboutme.model';
+import { AboutmeService } from '../../services/aboutme.service';
 
 @Component({
   selector: 'app-aboutme',
@@ -60,7 +60,6 @@ export class AboutmeComponent implements OnInit {
         'error'
       )
     }
-    
     )
   }
 

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AuthenticationService } from '../auth/authentication.service';
-import { AuthUser } from '../auth/authUser.model';
+import { AuthenticationService } from '../../auth/authentication.service';
+import { AuthUser } from '../../auth/authUser.model';
 
 @Component({
   selector: 'app-login',
