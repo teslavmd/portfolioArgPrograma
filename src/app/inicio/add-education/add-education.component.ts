@@ -17,6 +17,9 @@ export class AddEducationComponent implements OnInit {
 
   show : boolean = false;
 
+  showFormEdit : boolean = false;
+  idToShow : number;
+
   //Datos del formulario
   nombreEducacion : string;
   fechaInicio : number;
@@ -36,13 +39,22 @@ export class AddEducationComponent implements OnInit {
 
     //cargar la lista de educacion
     this.getEducation();
+
+
   }
+
 
 
   //Mostrar el formulario para agregar una educacion
   showForm(){
     this.show = this.show ? false : true;
   }
+
+  showFormToEdit(id : number){
+    this.showFormEdit = this.showFormEdit ? false : true;
+    this.idToShow = id;
+  }
+
 
   //Funcion para obtener la lista de educacion mediante el metodo del servicio Education
   getEducation(){
@@ -82,6 +94,32 @@ export class AddEducationComponent implements OnInit {
     }
     );
   }
+
+  //Editar educacion
+  editEducation(event : Event, form : NgForm, education : Education){
+    event.preventDefault();
+
+    this.educationService.editEducation(education.id, education).subscribe(
+      data => { 
+        Swal.fire(
+          'Completado!',
+          'Educacion editada exitosamente!',
+          'success'
+        )
+        this.showFormEdit = false; 
+      },
+      error => { 
+        Swal.fire(
+          'Ha ocurrido un error!',
+          'Verfica que lo datos esten bien ingresados o intentalo otra vez!',
+          'error'
+        )
+        console.log(error); 
+      }
+    )
+  }
+
+
 
   //Eliminar una educacion
   deleteEducation(id : number){

@@ -14,7 +14,9 @@
     min-height: 32px;
     width: 100%;
     padding: 10px;
+    color: #fff;
 }
+
 
 .input-fecha{
     width: 100%;
@@ -66,4 +68,15 @@ textarea{
 .buttons mat-icon:hover{
     border-bottom: solid 1px #000;
     transition: 300ms;
+}
+
+.add-button-class{
+    font-size: 3rem; color: #000;   
+}
+
+/* ESTILO PARA FORMULARIO EDIT  */
+.form-edit{
+    margin-top: 20px;
+    border : solid 1px #000;
+    background-color: var(--second-blur-color);
 }
