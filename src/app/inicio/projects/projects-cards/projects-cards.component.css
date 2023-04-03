@@ -13,3 +13,48 @@
     color: #4a22b9;
 }
 
+.projects-card{
+    display: flex;
+    flex-direction: row;
+}
+
+.projects-img{
+    width: 30%;
+    text-align: center;
+}
+
+.projects-img img{
+    height : 320px;
+    width : 70%;
+}
+
+.projects-info{
+    width: 70%;
+}
+
+
+@media screen and (max-width : 1000px){
+    .projects-img img{
+        height : 250px;
+        width : 80%;
+    }
+}
+
+@media screen and (max-width : 700px){
+    .projects-card{ 
+        flex-direction: column;
+    }
+
+    .projects-img img{
+        height : 320px;
+        width : 280px;
+    }
+
+   
+    .projects-img,
+    .projects-info{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+}

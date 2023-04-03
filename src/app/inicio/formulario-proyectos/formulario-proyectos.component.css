@@ -2,3 +2,7 @@ textarea.form-input{
     height: auto;
     resize: none;
 }
+
+.form-container input[type = "file"] {
+    display: none;
+}

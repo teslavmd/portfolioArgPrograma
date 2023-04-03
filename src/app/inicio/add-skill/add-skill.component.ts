@@ -5,6 +5,7 @@ import { FlashMessagesService } from 'flash-messages-angular';
 import { SkillCard } from '../../models/skill-model';
 import Swal from 'sweetalert2';
 import { Route, Router } from '@angular/router';
+import { FunctionsService } from 'src/app/services/functions.service';
 
 @Component({
   selector: 'app-add-skill',
@@ -19,8 +20,10 @@ export class AddSkillComponent implements OnInit {
   loading : boolean;
 
 
-  constructor(private skillService : SkillService,
-    private routeService : Router
+  constructor(
+    private skillService : SkillService,
+    private routeService : Router,
+    private functionService : FunctionsService
     ) { }
 
   ngOnInit(): void {
@@ -62,33 +65,14 @@ export class AddSkillComponent implements OnInit {
   
   capturarArchivo(event : any){
     const imagen = event.target.files[0];
-    this.extraerBase64(imagen).then((imagen : any) => {
+    this.functionService.extraerBase64(imagen).then((imagen : any) => {
       this.imgPre = imagen.base;
     })
 
     return this.imgPre;
   }
 
-  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
-    try {
-      const reader = new FileReader();
-
-      reader.readAsDataURL($event);
-      reader.onload = () =>{
-        resolve({
   
-          base: reader.result
-        })
-      };
-      reader.onerror = error => {
-        resolve({
-          base : null
-        })
-      }
-    } catch (err) {
-      return null
-    }
-  });
     
 
 }

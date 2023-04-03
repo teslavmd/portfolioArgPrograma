@@ -16,6 +16,18 @@
           required
         />
       </div>
+      <label class="input-file form-container">
+        <input 
+        [disabled]="loading"
+        type="file" 
+        name="foto" 
+        id="fotoProject"
+        class="form-input"
+        [(ngModel)]="proyecto.foto"
+        placeholder="Imagen"
+        (change)="capturarArchivo($event)"
+        />{{(loading) ? 'Cargando' : 'Subir Imagen/portada'}}
+      </label>
       <div class="form-container">
         <input 
         type="text" 
@@ -69,5 +81,10 @@
       </div>
   
     </form>
+
+    <div class="preshow-img">
+      <h4>Imagen</h4>
+      <img  [src]="proyecto.foto" alt="foto">
+    </div>
   </div>
-  
+

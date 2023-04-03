@@ -2,6 +2,11 @@
   <mat-spinner></mat-spinner>
 </div>
 <div class="projects-card" *ngFor="let pCard of projectsCard">
+    <div class="projects-img">
+      <img 
+      src="{{ pCard.foto }}" 
+      alt="">
+    </div>
     <div class="projects-info">
       <p><span class="underline">Nombre:</span> {{ pCard.nombre }}</p>
       <p>
